@@ -63,5 +63,5 @@ public:
 	CRat& operator=(const CRat& b);
 	int& operator[](int i) const;
 	int& operator()(int i) const;
-	void GetNumber()const;
+	void Get()const;
 };
