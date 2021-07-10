@@ -6,3 +6,4 @@ int main() {
     }
     catch (int err) { printf("error=%d\n", err); }
     return 0;
+}
