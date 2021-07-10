@@ -35,7 +35,6 @@ CRat::CRat(int* p, int* q, const int n) {
 
 
 CRat CRat::operator+(const CRat& b) {
-    int t = 0;
     CRat r;
     r.p = new int[r.n = n];
     r.q = new int(r.n = n);
@@ -50,11 +49,11 @@ CRat CRat::operator+(const CRat& b) {
    
 
 CRat CRat::operator-(const CRat& b) {
-    int t = 0;
     CRat r;
+    int i;
     r.p = new int[r.n = n];
     r.q = new int(r.n = n);
-    for (int i = r.n - 1; i >= 1; i--) {
+    for (i = r.n - 1; i >= 1; i--) {
         r.p[i] = p[i] * b.q[i] - b.p[i] * q[i];
         r.q[i] = q[i] * b.q[i];
     }
@@ -63,7 +62,8 @@ CRat CRat::operator-(const CRat& b) {
     delete[] r.q;
 }
 CRat& CRat :: operator=(const CRat& b) {
-    for (int i = 0; i < n; i++) {
+    int i;
+    for (i = 0; i < n; i++) {
         p[i] = b.p[i];
         q[i] = b.q[i];
     }
