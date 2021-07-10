@@ -60,7 +60,7 @@ CRat CRat::operator-(const CRat& b) {
     }
     return r;
     delete[] r.p;
-    delete() r.q;
+    delete[] r.q;
 }
 CRat& CRat :: operator=(const CRat& b) {
     for (int i = 0; i < n; i++) {
