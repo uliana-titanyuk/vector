@@ -56,6 +56,7 @@ public:
 			p[i] = b.p[i];
 		    q[i] = b.q[i];
 	}
+	}
 	CRat(int* p, int* q, const int n);
 	CRat operator+(const CRat& b);
 	CRat operator-(const CRat& b);
