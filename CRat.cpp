@@ -31,7 +31,6 @@ CRat::CRat(const char* FileName) {
            throw "wrong data";
        }
     }
-    inf.close(); 
 }
 int CRat :: output(const char* FileName) {
        
@@ -68,8 +67,9 @@ CRat CRat::operator+(const CRat& b) {
         }
         return v;
  }
-CRat CRat::operator-(const CRat & b) {
 
+
+CRat CRat::operator-(const CRat & b) {
         size_t n = std::min(fractions.size(), b.fractions.size());
         CRat v;
         for (size_t i = 0; i < n; i++) {
@@ -90,6 +90,8 @@ CRat CRat::operator-(const CRat & b) {
         }
         return v;
 }
+
+
 CRat CRat::operator*(int k) {
 CRat v;
 size_t n = fractions.size();
@@ -99,27 +101,26 @@ for (size_t i = 0; i < n; i++) {
 v.reduce();
 return v;
             }
-CRat& CRat::reduce() {
-size_t n = fractions.size();
- for (size_t i = 0; i < n; i++) {
-
- unsigned int a = abs(fractions[i].first);
- unsigned int b = fractions[i].second;
-  while (a != 0 and b != 0) {
-     if (a > b) {
-     a = a % b;
-  }
-  else {
-    b = b % a;
-  }
- }
- fractions[i].first = fractions[i].first / (a + b);
- fractions[i].second = fractions[i].second / (a + b);
- }
-
-return *this;
+void CRat::reduce() {
+    size_t n = fractions.size();
+    for (size_t i = 0; i < n; i++) {
+        unsigned int a = abs(fractions[i].first);
+        unsigned int b = fractions[i].second;
+        while (a != 0 and b != 0) {
+            if (a > b) {
+                a = a % b;
+            }
+            else {
+                b = b % a;
+            }
+        }
+        fractions[i].first = fractions[i].first / (a + b);
+        fractions[i].second = fractions[i].second / (a + b);
+    }
 }
-CRat& CRat :: operator=(const CRat & b) {
+
+
+CRat& CRat::operator=(const CRat & b){
 int n = fractions.size();
 for (int i = 0; i < n; i++) {
  fractions[i].first = b.fractions[i].first;
@@ -127,6 +128,8 @@ for (int i = 0; i < n; i++) {
 }
 return *this;
 }
+
+
  bool CRat :: operator!=(const CRat & b) {
   size_t n = fractions.size();
   if (n == b.fractions.size()) {
