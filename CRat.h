@@ -5,7 +5,7 @@ class CRat {
 
 public:
 
-	//конструкторы, деструктор, операторы присваивания, сложения, вычитания, скалярного умножения
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹, РґРµСЃС‚СЂСѓРєС‚РѕСЂ, РѕРїРµСЂР°С‚РѕСЂС‹ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ, СЃР»РѕР¶РµРЅРёСЏ, РІС‹С‡РёС‚Р°РЅРёСЏ, СЃРєР°Р»СЏСЂРЅРѕРіРѕ СѓРјРЅРѕР¶РµРЅРёСЏ
 	CRat(const std::vector < std::pair< int, unsigned int > >& values);
 	CRat(const char* FileName);
 
@@ -16,12 +16,12 @@ public:
 	CRat operator+(const CRat& b);
 	CRat operator-(const CRat& b);
 	CRat operator*(int b);
-	int check(const CRat& b, const CRat& a);
+	bool operator!=(const CRat& a);
 private:
 	CRat() {};
 
 	std::vector < std::pair< int, unsigned int > > fractions;
-	CRat& reduce();
+	void reduce();
 
 };
-void AutoTest();
+
