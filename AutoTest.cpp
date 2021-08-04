@@ -24,19 +24,19 @@ void AutoTest() {
 	CRat di = CRat(v);
 	v[0].first = 2; v[0].second = 1;
 	CRat ei = CRat(v);
-	if (check(a, ai) != 0) {
+	if (a!= ai) {
 		cout << "CRat(const char* FileName)  failed";
 	}
-	if (check(b, bi) != 0) {
+	if (b!=bi) {
 		cout << "CRat(const std::vector < std::pair< int, unsigned int > >& values) failed";
 	}
-	if (check(c, ci) != 0) {
+	if (c!=ci) {
 		cout << "operator+ failed";
 	}
-	if (check(d, di) != 0) {
+	if (d!=di)  {
 		cout << "operator- failed";
 	}
-	if (check(d, di) != 0) {
+	if (e!=ei) {
 		cout << "operator* failed";
 	}
 }
