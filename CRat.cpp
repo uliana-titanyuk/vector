@@ -9,6 +9,16 @@ CRat::CRat(const std::vector < std::pair< int, unsigned int > >& values) {
     fractions = values;
 }
 
+#include "CRat.h"
+#include<fstream>
+#include <iostream>
+#include <string>
+#include <cmath>
+
+CRat::CRat(const std::vector < std::pair< int, unsigned int > >& values) {
+    fractions = values;
+}
+
 CRat::CRat(const char* FileName) {
     if (FileName) {
         throw "File error.null pointer";
@@ -23,14 +33,13 @@ CRat::CRat(const char* FileName) {
     int a;
     unsigned int b;
     //while (inf >> a >> b){
-    while (not EOF) {
-        inf >> a;
-        inf >> b;
+    while ((inf >> a)&&(inf >> b)) {
        fractions.push_back(std::make_pair(a, b));
        if (b == 0) {
            throw "wrong data";
        }
     }
+    inf.close(); 
 }
 int CRat :: output(const char* FileName) {
        
@@ -106,7 +115,7 @@ void CRat::reduce() {
     for (size_t i = 0; i < n; i++) {
         unsigned int a = abs(fractions[i].first);
         unsigned int b = fractions[i].second;
-        while (a != 0 and b != 0) {
+        while ((a != 0)&& ( b != 0)) {
             if (a > b) {
                 a = a % b;
             }
@@ -147,3 +156,5 @@ if (k == n)
 }
 return true;
  }
+        
+ 
